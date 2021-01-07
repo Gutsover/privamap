@@ -8,11 +8,8 @@
           Test Technique
         </q-toolbar-title>
 
-        <q-btn-group push>
-          <q-btn push label="First" />
-          <q-btn push label="Second" />
-          <q-btn push label="Third" />
-        </q-btn-group>
+        <q-btn v-for="type in types" :key="type.id" label= {{ type.name }}/>
+
 
 
 
@@ -28,16 +25,36 @@
 </template>
 
 <script>
-  import { Quasar, QBtnGroup } from 'quasar'
+  import { Quasar, QBtn } from 'quasar'
   import axios from "axios"
-
-  let customType = require('assets/types.json')
 
 export default {
   name: 'MainLayout',
   components: {
-    QBtnGroup
-  }
+    QBtn
+  },
+  data() {
+    return {
+      types: []
+    }
+  },
+  methods: {
+    getType() {
+
+      this.$axios.get('types.json')
+          .then((response) => {
+            this.types = response.data
+              console.log('types:',this.types)
+          })
+          .catch((err) => {
+              console.log('Erreur:', err)
+          })
+    },
+
+  },
+  created() {
+      this.getType()
+    }
 
 }
 </script>
