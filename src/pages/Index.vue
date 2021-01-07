@@ -37,9 +37,9 @@ export default {
   data() {
     return {
       zoom: 15,
-      center: [0, 0],
+      center: [50.64093925317058, 3.0445486307144165],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      markerLatLng: [0, 0]
+      markerLatLng: [50.64093925317058, 3.0445486307144165]
     };
   },
 
@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted() {
-    this.getLocation();
+    // this.getLocation();
   }
 };
 </script>
