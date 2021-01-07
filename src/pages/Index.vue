@@ -4,6 +4,7 @@
         <l-map :zoom="zoom" :center="center" style="height: 100%; width: 100%">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng="markerLatLng"></l-marker>
+          <l-geo-json v-for="shape in shapes" :key="shape.id" :geojson="shape.geometry"></l-geo-json>
         </l-map>
     </q-card>
     <information-panel></information-panel>
@@ -11,11 +12,12 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet"
+import { LMap, LTileLayer, LMarker, LGeoJson } from "vue2-leaflet"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import { Icon } from "leaflet"
 import InformationPanel from "components/InformationPanel.vue"
+import Shapes from "src/assets/shapes.json";
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -31,6 +33,7 @@ export default {
     LMap,
     LTileLayer,
     LMarker,
+    LGeoJson,
     InformationPanel
   },
 
@@ -39,7 +42,9 @@ export default {
       zoom: 15,
       center: [50.64093925317058, 3.0445486307144165],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      markerLatLng: [50.64093925317058, 3.0445486307144165]
+      markerLatLng: [50.64093925317058, 3.0445486307144165],
+      geojson: null,
+      shapes: Shapes
     };
   },
 
