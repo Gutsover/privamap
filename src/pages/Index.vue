@@ -1,19 +1,21 @@
 <template>
   <q-page padding class="flex">
-    <q-card style="flex:1">
-        <l-map :zoom="zoom" :center="center" style="height: 100%; width: 70%">
+    <q-card style="width: 70%">
+        <l-map :zoom="zoom" :center="center" style="height: 100%; width: 100%">
           <l-tile-layer :url="url"></l-tile-layer>
           <l-marker :lat-lng="markerLatLng"></l-marker>
         </l-map>
     </q-card>
+    <information-panel></information-panel>
   </q-page>
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet"
+import L from "leaflet"
+import "leaflet/dist/leaflet.css"
+import { Icon } from "leaflet"
+import InformationPanel from "components/InformationPanel.vue"
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -28,7 +30,8 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
+    InformationPanel
   },
 
   data() {

@@ -41,7 +41,5 @@ export default {
 </script>
 
 <style lang="sass">
-.q-btn-dropdown
-  display: flex
-  flex-direction: column
+
 </style>
