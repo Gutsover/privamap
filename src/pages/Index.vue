@@ -1,22 +1,27 @@
 <template>
   <q-page padding class="flex">
-    <q-card style="width: 70%">
-        <l-map :zoom="zoom" :center="center" style="height: 100%; width: 100%">
-          <l-tile-layer :url="url"></l-tile-layer>
-          <l-marker :lat-lng="markerLatLng"></l-marker>
-          <l-geo-json v-for="shape in shapes" :key="shape.id" :geojson="shape.geometry"></l-geo-json>
-        </l-map>
+    <q-card class="my-map">
+      <l-map :zoom="zoom" :center="center" style="height: 100%; width: 100%">
+        <l-tile-layer :url="url"></l-tile-layer>
+        <l-marker :lat-lng="markerLatLng"></l-marker>
+        <l-geo-json
+          v-for="shape in shapes"
+          :key="shape.id"
+          :geojson="shape.geometry"
+          @click="getInfo"
+        ></l-geo-json>
+      </l-map>
     </q-card>
     <information-panel></information-panel>
   </q-page>
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LGeoJson } from "vue2-leaflet"
-import L from "leaflet"
-import "leaflet/dist/leaflet.css"
-import { Icon } from "leaflet"
-import InformationPanel from "components/InformationPanel.vue"
+import { LMap, LTileLayer, LMarker, LGeoJson } from "vue2-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
+import InformationPanel from "components/InformationPanel.vue";
 import Shapes from "src/assets/shapes.json";
 
 delete Icon.Default.prototype._getIconUrl;
@@ -49,6 +54,9 @@ export default {
   },
 
   methods: {
+    getInfo() {
+      console.log(this.shapes.keys);
+    },
     getLocation() {
       navigator.geolocation.getCurrentPosition(
         position => {
@@ -68,3 +76,10 @@ export default {
   }
 };
 </script>
+
+<style lang="sass">
+.my-map
+  width: 70%
+  @media (max-width: 970px)
+    width: 100%
+</style>

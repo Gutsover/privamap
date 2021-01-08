@@ -1,5 +1,5 @@
 <template>
-  <q-card bordered class="bg-grey-3 my-card" style="width: 30%">
+  <q-card bordered class="bg-grey-3 my-card" >
     <q-card-section>
       <div class="text-h6">{{ title }}</div>
       <div class="text-subtitle2">{{ shortTitle }}</div>
@@ -9,6 +9,7 @@
     <q-separator white inset />
     <q-card-section>
       <span>Coordonnées: {{ coordinate }}</span>
+      <q-separator white inset />
       <img src="https://cdn.quasar.dev/img/parallax2.jpg" />
     </q-card-section>
   </q-card>
@@ -33,7 +34,16 @@ export default {
 </script>
 
 <style lang="sass">
+.q-card
+    width: 30%
+    margin: 0 0 0 0
+    @media (max-width: 970px)
+        width: 100%
+        height: 300px
+        overflow: auto
+        padding: 0
 img
+    margin: 15px
     height: 150px
     width: 150px
 
