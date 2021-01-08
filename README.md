@@ -1,4 +1,4 @@
-# Leaflet with Quasar (quasar-leaflet)
+# Leaflet with Quasar (Test technique)
 
 A Quasar Framework app
 
@@ -20,3 +20,4 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
