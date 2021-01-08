@@ -29,10 +29,3 @@ export default {
   // }
 };
 </script>
-
-<style lang="sass">
-// .q-toolbar-title
-//   display: block
-//   @media (max-width: 550px)
-//     display: none
-</style>
