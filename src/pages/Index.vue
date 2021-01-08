@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="flex">
+  <q-page class="flex">
     <q-card class="my-map">
       <l-map :zoom="zoom" :center="center" style="height: 100%; width: 100%">
         <l-tile-layer :url="url"></l-tile-layer>
@@ -78,8 +78,13 @@ export default {
 </script>
 
 <style lang="sass">
+.q-page
+  @media (max-width: 970px)
+    display: block
 .my-map
   width: 70%
   @media (max-width: 970px)
     width: 100%
+    min-height: 60vh
+
 </style>

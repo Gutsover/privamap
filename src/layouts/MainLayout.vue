@@ -1,10 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar class="bg-cyan-9">
         <q-toolbar-title>
           Test Technique
         </q-toolbar-title>
+        <search-bar></search-bar>
         <button-type></button-type>
       </q-toolbar>
     </q-header>
@@ -16,10 +17,11 @@
 
 <script>
 import ButtonType from "components/ButtonType.vue";
+import SearchBar from 'src/components/SearchBar.vue';
 
 export default {
   name: "MainLayout",
-  components: { ButtonType }
+  components: { ButtonType, SearchBar }
   // data () {
   //   return {
   //     leftDrawerOpen: false
@@ -27,3 +29,10 @@ export default {
   // }
 };
 </script>
+
+<style lang="sass">
+// .q-toolbar-title
+//   display: block
+//   @media (max-width: 550px)
+//     display: none
+</style>

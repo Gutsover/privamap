@@ -1,5 +1,5 @@
 <template>
-  <q-card bordered class="bg-grey-3 my-card" >
+  <q-card bordered class="bg-grey-12 my-card" >
     <q-card-section>
       <div class="text-h6">{{ title }}</div>
       <div class="text-subtitle2">{{ shortTitle }}</div>

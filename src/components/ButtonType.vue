@@ -1,6 +1,6 @@
 <template>
-  <div class="button-type">
-    <q-btn-dropdown color="primary" label="Types">
+  <div class="button-type q-pa-md">
+    <q-btn-dropdown color="cyan-9" label="Types">
       <q-list>
         <q-item
           v-for="type in types"
@@ -40,3 +40,8 @@ export default {
 };
 </script>
 
+<style lang="sass">
+.q-btn__wrapper:before
+  box-shadow: none
+  
+</style>
